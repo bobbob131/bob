@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+cout << "Ćao ovo je program u kome pogadjas loto brojeve";
+int k,n,br=0;
+cout << "Unesi do kog broja zelis da bude granica brojeva: ";
+cin >> k;
+cout << "Unesi koliko brojeva se izvlace: ";
+cin >> n;
+int niz[100000];
+int niz2[100000];
+srand(time(0));
+ for(int i = 0;i<n;i++){
+    cin >> niz2[i];
+}
+for (int i = 0; i < n; i++) {
+        while (true) {
+            niz[i] = rand() % k;
+            bool postoji = false;
+            for (int j = 0; j < i; j++) {
+                if (niz[j] == niz[i]) {
+                    postoji = true;
+                    break;
+                }
+            }
+            if (!postoji) {
+                break;
+            }
+        }
+    }
+
+for(int i = 0;i<n;i++){
+    for(int j = 0;j<n;j++){
+        if(niz2[i]==niz[j])
+            br++;
+    }
+}
+cout << "Pogodili ste: " << br <<" loto brojeva od mogucih "<< n << endl;
+cout << "Loto kombinacija je: ";
+for(int i = 0;i<n;i++){
+    cout << niz[i] <<" ";
+}
+    return 0;
+}
